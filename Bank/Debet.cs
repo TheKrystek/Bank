@@ -8,54 +8,56 @@ namespace Bank
 {
     public class Debet
     {
-        Pieniadze max;
-        Pieniadze dostpieniadze;
+        Pieniadze limit;
+        Pieniadze stan;
 
-
-        public Debet(Pieniadze max) {
-            this.max = max;
-            this.dostpieniadze = new Pieniadze(max.Wartosc,max.Waluta);
+        public Debet(Pieniadze limit) {
+            this.limit = limit;
+            this.stan = limit;
         }
 
-        public Pieniadze Maxpieniadze
+        public Pieniadze Limit
         {
-            get { return max; }
+            get { return limit; }
         }
      
-        public Pieniadze Dostpieniadze
+        public Pieniadze Stan
         {
-            get { return dostpieniadze; }
-            set { dostpieniadze = value; }
+            get { return stan; }
+            set { stan = value; }
         }
 
 
         public bool Pobierz(Pieniadze pieniadze) {
-            if (Pieniadze.RozneWaluty(dostpieniadze,pieniadze))
+            try
+            {
+                this.stan -= pieniadze;
+            }
+            catch (Exception)
+            {
                 return false;
-
-            if (dostpieniadze.Wartosc < pieniadze.Wartosc)
-                return false;
-
-            dostpieniadze.Odejmij(pieniadze);
-
-            return true;
+            }
+            return true;  
         }
 
-
+        /// <summary>
+        /// Zwraca resztę, np. jeżeli limit wynosi 1000 a wpłacamy 1500 to 500 za dużo
+        /// </summary>
+        /// <param name="pieniadze"></param>
+        /// <returns></returns>
         public Pieniadze Dodaj(Pieniadze pieniadze)
         {
-            if (!Pieniadze.RozneWaluty(dostpieniadze,pieniadze))
+            if (Pieniadze.RozneWaluty(stan,pieniadze))
                 return pieniadze;
 
-            if (pieniadze.Wartosc > max.Wartosc)
+            if ((limit-stan) >= pieniadze)
             {
-                pieniadze.Odejmij(dostpieniadze);
-                dostpieniadze = new Pieniadze(max.Wartosc, max.Waluta);
+                stan += pieniadze;
+                return new Pieniadze(0,pieniadze.Waluta);
             }
-            else
-                dostpieniadze.Dodaj(new Pieniadze(0,max.Waluta));
-
-            return pieniadze;
+            Pieniadze reszta = pieniadze - (limit - stan);
+            stan = limit;
+            return reszta;
         }
 
     }

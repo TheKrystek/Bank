@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DebetTests.cs" />
     <Compile Include="PieniadzeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RachunekBankowyTests.cs" />

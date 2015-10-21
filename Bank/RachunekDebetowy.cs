@@ -38,7 +38,7 @@ namespace Bank
             // Jezeli brakuje nam srodkow to sprawdz czy debet plus dost pieniadze zalatwiaja sprawe
             Pieniadze sumaSrodkow = new Pieniadze(0, pieniadze.Waluta);
             sumaSrodkow.Dodaj(this.pieniadze);
-            sumaSrodkow.Dodaj(debet.Dostpieniadze);
+            sumaSrodkow.Dodaj(debet.Stan);
 
             if (sumaSrodkow.Wartosc >= pieniadze.Wartosc)
             {
@@ -59,7 +59,7 @@ namespace Bank
             if (this.pieniadze.Waluta != pieniadze.Waluta)
                 return false;
 
-            return (this.pieniadze.Wartosc + this.debet.Dostpieniadze.Wartosc >= pieniadze.Wartosc);
+            return (this.pieniadze.Wartosc + this.debet.Stan.Wartosc >= pieniadze.Wartosc);
         }
 
 
@@ -67,8 +67,8 @@ namespace Bank
         {
             Pieniadze suma = new Pieniadze();
             suma.Dodaj(pieniadze);
-            suma.Dodaj(debet.Dostpieniadze);
-            return String.Format("rachunek debetowy {0} klienta {1}. Saldo: {2}, MaxDebet: {3}/{4}, Dostępne pieniadze: {5}", Id, klient, pieniadze, debet.Dostpieniadze, debet.Maxpieniadze, suma);
+            suma.Dodaj(debet.Stan);
+            return String.Format("rachunek debetowy {0} klienta {1}. Saldo: {2}, MaxDebet: {3}/{4}, Dostępne pieniadze: {5}", Id, klient, pieniadze, debet.Stan, debet.Limit, suma);
         }
 
     }

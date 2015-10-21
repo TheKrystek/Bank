@@ -17,6 +17,7 @@ namespace Bank
 
         public RachunekBankowy(Klient klient, Int64 id = 0)
         {
+            this.DataUtworzenia = DateTime.Now;
             this.klient = klient;
             this.pieniadze = new Pieniadze(0);
             this.Id = id;

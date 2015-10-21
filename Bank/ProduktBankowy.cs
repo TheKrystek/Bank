@@ -9,6 +9,9 @@ namespace Bank
     public abstract class ProduktBankowy
     {
         private Int64 id;
+        private Klient klient;
+        private DateTime dataUtworzenia;
+
 
         protected Int64 Id
         {
@@ -16,8 +19,16 @@ namespace Bank
             set { id = value; }
         }
 
-       protected Klient klient;
-       protected DateTime dataUtworzenia;
+       protected Klient Klient
+        {
+            get { return klient; }
+            set { klient = value; }
+        }
+       protected DateTime DataUtworzenia
+       {
+           get { return dataUtworzenia; }
+           set { dataUtworzenia = value; }
+       }
 
     }
 }
