@@ -31,5 +31,10 @@ namespace Bank
 
             return rachunek.Pieniadze.Dodaj(przyrost);
         }
+
+        public override Klient Klient()
+        {
+            return rachunek.Klient();
+        }
     }
 }

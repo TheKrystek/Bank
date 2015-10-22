@@ -89,7 +89,6 @@ namespace Bank
             bool wynik = operacja.Wykonaj();
             if (wynik)
                 historia.Dodaj(operacja);
-
             return wynik;
         }
 

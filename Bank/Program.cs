@@ -24,28 +24,16 @@ namespace Bank
             // Wykonaj wplaty 1000 PLN na konto Krystiana i 500 PLN na konto Pawła
             bank.Wykonaj(new Wplata(rachunekKrystiana, new Pieniadze(1011)));
             bank.Wykonaj(new Wplata(rachunekPawla, new Pieniadze(500)));
-
-            bank.WyswietlProdukty();
-
-
-            // Konto debetowe
-          //  bank.Wykonaj(new Wyplata(rachunekPawla, new pieniadze(500)));
-         //   bank.WyswietlProdukty();
-
-
-            // Konto debetowe
             bank.Wykonaj(new Wyplata(rachunekPawla, new Pieniadze(2500)));
-            bank.WyswietlProdukty();
+            bank.Wykonaj(new Wyplata(rachunekPawla, new Pieniadze(500)));
 
-
-
-            //bank.Wykonaj(new Wyplata(rachunekPawla,new pieniadze(500)));
-
-            ////Wyswietl historie operacji
-            //bank.WyswietlHistorie();
+            //Wyswietl historie operacji
+            bank.WyswietlHistorie();
 
             //bank.Wykonaj(new Przelew(rachunekPawla,rachunekKrystiana,new pieniadze(1500)));
             //bank.Wykonaj(new NaliczOdsetki(rachunekKrystiana,new ProstyModelOdsetek(10)));
+
+            krystian.WyswietlHistorie();
 
 
             //// Wyswietl historie operacji

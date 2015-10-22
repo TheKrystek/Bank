@@ -16,6 +16,13 @@ namespace Bank
             this.stan = limit;
         }
 
+        public Debet(int limit)
+        {
+            this.limit = new Pieniadze(limit);
+            this.stan = this.limit;
+        }
+
+
         public Pieniadze Limit
         {
             get { return limit; }

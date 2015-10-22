@@ -9,7 +9,6 @@ namespace Bank
     public class RachunekDebetowy : RachunekBankowy
     {
         private Debet debet;
-
         public RachunekDebetowy(Klient klient, Debet debet, Int64 id = 0)
             : base(klient, id)
         {
@@ -19,12 +18,22 @@ namespace Bank
 
         public override bool WplacPieniadze(Pieniadze pieniadze)
         {
-            Pieniadze reszta = debet.Dodaj(pieniadze);
-            this.pieniadze.Dodaj(reszta);
-
+            try
+            {
+                Pieniadze reszta = debet.Dodaj(pieniadze);
+                this.pieniadze += reszta;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
             return true;
         }
 
+
+        public Pieniadze DostepneSrodki() {
+            return debet.Stan + pieniadze;
+        }
 
         public override bool WyplacPieniadze(Pieniadze pieniadze)
         {
@@ -68,7 +77,7 @@ namespace Bank
             Pieniadze suma = new Pieniadze();
             suma.Dodaj(pieniadze);
             suma.Dodaj(debet.Stan);
-            return String.Format("rachunek debetowy {0} klienta {1}. Saldo: {2}, MaxDebet: {3}/{4}, Dostępne pieniadze: {5}", Id, klient, pieniadze, debet.Stan, debet.Limit, suma);
+            return String.Format("Rachunek debetowy {0} klienta {1}.\r\nSaldo: {2}, Debet: {3}/{4}, Dostępne środki: {5}", Id, klient, pieniadze, debet.Stan, debet.Limit, suma);
         }
 
     }

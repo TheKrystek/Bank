@@ -43,11 +43,13 @@
   <ItemGroup>
     <Compile Include="Bank.cs" />
     <Compile Include="Debet.cs" />
+    <Compile Include="HistoriaKlienta.cs" />
     <Compile Include="ModelOdsetek.cs" />
     <Compile Include="NaliczOdsetki.cs" />
     <Compile Include="ProstyModelOdsetek.cs" />
     <Compile Include="Przelew.cs" />
     <Compile Include="RozneWalutyException.cs" />
+    <Compile Include="WpisWHistorii.cs" />
     <Compile Include="Wyplata.cs" />
     <Compile Include="Operacja.cs" />
     <Compile Include="Historia.cs" />

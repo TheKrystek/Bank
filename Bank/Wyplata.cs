@@ -27,5 +27,10 @@ namespace Bank
         {
             return rachunek.WyplacPieniadze(pieniadze);
         }
+
+        public override Klient Klient()
+        {
+            return rachunek.Klient();
+        }
     }
 }

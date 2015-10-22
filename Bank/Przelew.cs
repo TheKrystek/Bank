@@ -33,5 +33,11 @@ namespace Bank
 
             return operacjaDruga.Wykonaj();
         }
+
+
+        public override Klient Klient()
+        {
+            return rachunekA.Klient();
+        }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-  public interface ModelOdsetek
+    public interface ModelOdsetek
     {
 
-       double DajOprocentowania();
+        double DajOprocentowania();
 
-       double DajKapitalizacje();
+        double DajKapitalizacje();
 
     }
 }

@@ -54,7 +54,8 @@
     <Compile Include="PieniadzeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RachunekBankowyTests.cs" />
-    <Compile Include="Przelew.cs" />
+    <Compile Include="PrzelewTests.cs" />
+    <Compile Include="RachunekDebetowyTests.cs" />
     <Compile Include="WyplataTests.cs" />
     <Compile Include="WplataTests.cs" />
   </ItemGroup>

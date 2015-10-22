@@ -8,7 +8,6 @@ namespace Bank
 {
     public class RachunekBankowy : ProduktBankowy
     {
-        protected Klient klient;
         protected Pieniadze pieniadze;
         public Pieniadze Pieniadze
         {

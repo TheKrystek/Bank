@@ -10,8 +10,6 @@ namespace Bank.Tests
     [TestClass()]
     public class PieniadzeTests
     {
-        //[ExpectedException(typeof(RozneWalutyException))]
-
         #region Porownywanie wartosci
         #region Operator ==
         [TestMethod()]

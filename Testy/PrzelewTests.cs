@@ -27,27 +27,27 @@ namespace Bank.Tests
         }
 
         [TestMethod()]
-        public void Przelew_PrzelejMniejNizMaNaKoncie()
+        public void Przelew_MniejNizMaNaKoncie()
         {
             bank.Wykonaj(new Przelew(rachunekA,rachunekB, new Pieniadze(5000)));
             Assert.AreEqual(new Pieniadze(5000),rachunekB.Pieniadze);
         }
 
         [TestMethod()]
-        public void Przelew_PrzelejWiecejNizMaNaKoncie()
+        public void Przelew_WiecejNizMaNaKoncie()
         {
             Assert.IsFalse(bank.Wykonaj(new Przelew(rachunekA,rachunekB, new Pieniadze(50000))));
         }
 
         [TestMethod()]
-        public void Przelew_PrzelejDokladnieIleNaKoncie()
+        public void Przelew_DokladnieIleNaKoncie()
         {
             Assert.IsTrue(bank.Wykonaj(new Przelew(rachunekA,rachunekB, new Pieniadze(10000))));
         }
 
 
         [TestMethod()]
-        public void Przelew_PrzelejWInnejWalucie()
+        public void Przelew_WInnejWalucie()
         {
             Assert.IsFalse(bank.Wykonaj(new Przelew(rachunekA, rachunekB, new Pieniadze(10000,Pieniadze.Waluty.USD))));
         }

@@ -9,14 +9,14 @@ namespace Bank
     class Historia
     {
 
-        public List<Operacja> historia;
+        protected static List<WpisWHistorii> historia;
 
         public Historia() {
-            historia = new List<Operacja>();
+            historia = new List<WpisWHistorii>();
         }
 
         public bool Dodaj(Operacja operacja) {
-            historia.Add(operacja);
+            historia.Add(new WpisWHistorii(operacja.Klient(),operacja));
             return true;
         }
 
@@ -25,9 +25,8 @@ namespace Bank
             Console.WriteLine("+++HISTORIA+++");
             foreach (var operacja in historia)
             {
-                Console.WriteLine(" [{0}] {1}",operacja.DataWykonania,operacja.Opis());
+                Console.WriteLine(operacja);
             }
-   
         }
 
     } 
