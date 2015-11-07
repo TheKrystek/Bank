@@ -19,13 +19,13 @@ namespace Bank
 
             // Stworz rachunki bankowe
             RachunekBankowy rachunekKrystiana = bank.dodajRachunekBankowy(krystian);
-            RachunekDebetowy rachunekPawla = bank.dodajRachunekDebetowy(pawel,new Pieniadze(1000));
+            RachunekDebetowy rachunekPawla = bank.dodajRachunekDebetowy(pawel, new Pieniadze(1000));
 
             // Wykonaj wplaty 1000 PLN na konto Krystiana i 500 PLN na konto Pawła
-            bank.Wykonaj(new Wplata(rachunekKrystiana, new Pieniadze(1011)));
-            bank.Wykonaj(new Wplata(rachunekPawla, new Pieniadze(500)));
-            bank.Wykonaj(new Wyplata(rachunekPawla, new Pieniadze(2500)));
-            bank.Wykonaj(new Wyplata(rachunekPawla, new Pieniadze(500)));
+            bank.Wykonaj(new Wplata(rachunekKrystiana, new Pieniadze(100000)));
+            bank.Wykonaj(new Wyplata(rachunekKrystiana, new Pieniadze(100000)));
+
+
 
             //Wyswietl historie operacji
             bank.WyswietlHistorie();

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
+    /// <summary>
+    /// Klasa określająca debet
+    /// Zasadniczo sklada się z dwóch pól określających obecną oraz maksymalną kwotę debetu
+    /// </summary>
     public class Debet
     {
         Pieniadze limit;
@@ -21,7 +25,6 @@ namespace Bank
             this.limit = new Pieniadze(limit);
             this.stan = this.limit;
         }
-
 
         public Pieniadze Limit
         {

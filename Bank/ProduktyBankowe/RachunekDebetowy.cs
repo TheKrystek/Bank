@@ -20,14 +20,14 @@ namespace Bank
         {
             try
             {
-                Pieniadze reszta = debet.Dodaj(pieniadze);
+                Pieniadze reszta = debet.Dodaj(pieniadze);     
                 this.pieniadze += reszta;
+                return true;
             }
             catch (Exception)
             {
                 return false;
             }
-            return true;
         }
 
 
@@ -41,7 +41,7 @@ namespace Bank
                 return false;
 
             // Jezeli mamy dostepne pieniadze to nie ruszamy debetu
-            if (this.pieniadze.Wartosc >= pieniadze.Wartosc)
+            if (this.pieniadze >= pieniadze)
                 return base.WyplacPieniadze(pieniadze);
 
             // Jezeli brakuje nam srodkow to sprawdz czy debet plus dost pieniadze zalatwiaja sprawe

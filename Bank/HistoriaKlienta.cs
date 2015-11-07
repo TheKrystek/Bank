@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
+    /// <summary>
+    /// Klasa dekorator. 
+    /// Udostępnia klientowi historię operacji.
+    /// </summary>
     class HistoriaKlienta : Historia
     {
 

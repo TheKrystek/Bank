@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-  public  class ProstyModelOdsetek : ModelOdsetek
+  public  class ProstyModelOdsetek : IModelOdsetek
     {
         double oprocentowanie;
 
@@ -14,8 +14,7 @@ namespace Bank
             this.oprocentowanie = oprocentowanie;
         }
 
-
-        public double DajOprocentowania()
+        public double DajOprocentowania(int rata = 0)
         {
             return oprocentowanie;
         }
@@ -23,6 +22,13 @@ namespace Bank
         public double DajKapitalizacje()
         {
             return 1;
+        }
+
+
+        public Pieniadze Oblicz(Pieniadze kwota, int rata)
+        {
+            return new Pieniadze((int)(DajOprocentowania() / 100 * kwota.Wartosc),
+                kwota.Waluta);
         }
     }
 }

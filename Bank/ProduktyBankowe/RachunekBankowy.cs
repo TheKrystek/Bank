@@ -27,12 +27,12 @@ namespace Bank
             try
             {
                 this.pieniadze -= pieniadze;
+                return true;  
             }
             catch (Exception)
             {
                 return false;
-            }
-            return true;  
+            }         
         }
 
         public virtual bool WplacPieniadze(Pieniadze pieniadze)
@@ -40,12 +40,12 @@ namespace Bank
             try
             {
                 this.pieniadze += pieniadze;
+                return true;
             }
             catch (Exception)
             {
                 return false;
-            }
-            return true;
+            }         
         }
 
         protected virtual bool CzyDostepnePieniadze(Pieniadze pieniadze)
@@ -55,8 +55,9 @@ namespace Bank
                 return (Pieniadze >= pieniadze);
             }
             catch (Exception)
-            { }
-            return false;  
+            {
+                return false;  
+            }      
         }
 
         public override string ToString()

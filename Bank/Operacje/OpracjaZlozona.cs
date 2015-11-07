@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
+    /// <summary>
+    /// Klasa rozszerzająca operację 
+    /// </summary>
     public abstract class OpracjaZlozona : Operacja
     {
         protected Operacja operacjaPierwsza, operacjaDruga;

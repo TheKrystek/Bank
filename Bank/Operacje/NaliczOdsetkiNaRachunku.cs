@@ -6,29 +6,28 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class NaliczOdsetki : Operacja
+    public class NaliczOdsetkiNaRachunku : Operacja
     {
 
-        private ModelOdsetek modelOdsetek;
+        private IModelOdsetek modelOdsetek;
         private RachunekBankowy rachunek;
+        private int rata;
 
-
-        public NaliczOdsetki(RachunekBankowy rachunek, ModelOdsetek modelOdsetek)
+        public NaliczOdsetkiNaRachunku(RachunekBankowy rachunek, IModelOdsetek modelOdsetek, int rata = 1)
         {
             this.modelOdsetek = modelOdsetek;
             this.rachunek = rachunek;
+            this.rata = rata;
         }
 
         public override string Opis()
         {
-            return String.Format("naliczenie odsetek wys {0}% na koncie {1}", modelOdsetek.DajOprocentowania(), rachunek);
+            return String.Format("naliczenie odsetek wys {0}% na koncie {1}", modelOdsetek.DajOprocentowania(rata), rachunek);
         }
 
         public override bool Wykonaj()
         {
-            Pieniadze przyrost = new Pieniadze((int)modelOdsetek.DajOprocentowania() / 100 * rachunek.Pieniadze.Wartosc,
-                rachunek.Pieniadze.Waluta);
-
+            Pieniadze przyrost = modelOdsetek.Oblicz(rachunek.Pieniadze,rata);
             return rachunek.Pieniadze.Dodaj(przyrost);
         }
 

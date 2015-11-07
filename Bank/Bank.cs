@@ -6,28 +6,16 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
+
     public class Bank
     {
-
-        List<Klient> klienci;
-        List<ProduktBankowy> produktyBankowe;
-        Historia historia;
-
-        String nazwa;
-        Random random = new Random();
-
-
-        public Bank()
-        {
-            produktyBankowe = new List<ProduktBankowy>();
-            historia = new Historia();
-        }
+       private List<Klient> klienci = new List<Klient>();
+       private List<ProduktBankowy> produktyBankowe = new List<ProduktBankowy>();
+       private Historia historia = new Historia();
+       private Random random = new Random();
 
         public Klient dodajKlienta(Klient klient)
         {
-            if (klienci == null)
-                klienci = new List<Klient>();
-
             klienci.Add(klient);
             return klient;
         }
@@ -53,6 +41,18 @@ namespace Bank
 
             produktyBankowe.Add(rachunek);
             return rachunek;
+        }
+
+
+        public Kredyt dodajKredyt(Klient klient, Pieniadze kwota, double oprocentowanie = 10, int iloscRat = 2)
+        {
+            if (!klienci.Contains(klient))
+                klienci.Add(klient);
+
+            Kredyt kredyt = new Kredyt(kwota, new ProstyModelOdsetek(oprocentowanie), iloscRat);
+
+            produktyBankowe.Add(kredyt);
+            return kredyt;
         }
 
         public int LiczbaKlientow() {
@@ -91,7 +91,5 @@ namespace Bank
                 historia.Dodaj(operacja);
             return wynik;
         }
-
-
     }
 }

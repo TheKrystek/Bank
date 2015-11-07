@@ -9,11 +9,10 @@ namespace Bank
    public  class Klient
     {
 
-        String PESEL, imie, nazwisko, ulica, numerDomu, miasto;
-        int numerMieszkania;
-        DateTime dataUrodzenia, dataRejestracj;
-        HistoriaKlienta historia; 
-
+       private String PESEL, imie, nazwisko, ulica, numerDomu, miasto;
+       private int numerMieszkania;
+       private DateTime dataUrodzenia, dataRejestracj;
+       private HistoriaKlienta historia; 
 
 
         public Klient(String imie, String nazwisko) {
@@ -31,7 +30,6 @@ namespace Bank
         public void WyswietlHistorie() {
             historia.Wyswietl();
         }
-
     }
 
 }

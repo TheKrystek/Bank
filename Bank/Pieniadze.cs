@@ -27,7 +27,6 @@ namespace Bank
             get { return waluta; }
             set { waluta = value; }
         }
-
        
         public Pieniadze(int wartosc = 0, Waluty waluta = Waluty.PLN)
         {

@@ -44,31 +44,33 @@
     <Compile Include="Bank.cs" />
     <Compile Include="Debet.cs" />
     <Compile Include="HistoriaKlienta.cs" />
-    <Compile Include="ModelOdsetek.cs" />
-    <Compile Include="NaliczOdsetki.cs" />
+    <Compile Include="IModelOdsetek.cs" />
+    <Compile Include="Operacje\NaliczOdsetkiNaRachunku.cs" />
+    <Compile Include="Operacje\SplacRateKredytu.cs" />
     <Compile Include="ProstyModelOdsetek.cs" />
-    <Compile Include="Przelew.cs" />
+    <Compile Include="Operacje\Przelew.cs" />
     <Compile Include="RozneWalutyException.cs" />
     <Compile Include="WpisWHistorii.cs" />
-    <Compile Include="Wyplata.cs" />
-    <Compile Include="Operacja.cs" />
+    <Compile Include="Operacje\Wyplata.cs" />
+    <Compile Include="Operacje\Operacja.cs" />
     <Compile Include="Historia.cs" />
-    <Compile Include="IOpracjaZlozona.cs" />
+    <Compile Include="Operacje\OpracjaZlozona.cs" />
     <Compile Include="Klient.cs" />
-    <Compile Include="Kredyt.cs" />
-    <Compile Include="Lokata.cs" />
-    <Compile Include="IOperacja.cs" />
-    <Compile Include="ProduktBankowy.cs" />
+    <Compile Include="ProduktyBankowe\Kredyt.cs" />
+    <Compile Include="ProduktyBankowe\Lokata.cs" />
+    <Compile Include="Operacje\IOperacja.cs" />
+    <Compile Include="ProduktyBankowe\ProduktBankowy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Wplata.cs" />
-    <Compile Include="RachunekBankowy.cs" />
-    <Compile Include="RachunekDebetowy.cs" />
+    <Compile Include="Operacje\Wplata.cs" />
+    <Compile Include="ProduktyBankowe\RachunekBankowy.cs" />
+    <Compile Include="ProduktyBankowe\RachunekDebetowy.cs" />
     <Compile Include="Pieniadze.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Properties\App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

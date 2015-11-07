@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
+    /// <summary>
+    /// Interfejs definiujący operacje
+    /// </summary>
     public interface IOperacja
     {
         bool Wykonaj();
-
     }
 }

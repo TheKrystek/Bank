@@ -10,6 +10,7 @@ namespace Bank
     {
         private Klient klient;
         private Operacja operacja;
+        private string opis; 
 
         public Klient Klient
         {
@@ -21,14 +22,16 @@ namespace Bank
             get { return operacja; }
         }
 
-        public WpisWHistorii(Klient klient, Operacja operacja) {
-            this.klient = klient;
+        public WpisWHistorii(Operacja operacja) {
+            this.klient = operacja.Klient();
             this.operacja = operacja;
+            this.opis = operacja.Opis();
         }
+
 
         public override string ToString()
         {
-            return String.Format("[{0}] {1}", operacja.DataWykonania, operacja.Opis());
+            return String.Format("[{0}] {1}", operacja.DataWykonania, opis);
         }
 
 

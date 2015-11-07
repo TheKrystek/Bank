@@ -16,7 +16,7 @@ namespace Bank
         }
 
         public bool Dodaj(Operacja operacja) {
-            historia.Add(new WpisWHistorii(operacja.Klient(),operacja));
+            historia.Add(new WpisWHistorii(operacja));
             return true;
         }
 
