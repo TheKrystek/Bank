@@ -9,10 +9,16 @@ namespace Bank
 
     public class Bank
     {
-       private List<Klient> klienci = new List<Klient>();
-       private List<ProduktBankowy> produktyBankowe = new List<ProduktBankowy>();
-       private Historia historia = new Historia();
-       private Random random = new Random();
+        private List<Klient> klienci = new List<Klient>();
+        private List<ProduktBankowy> produktyBankowe = new List<ProduktBankowy>();
+        private Historia historia;
+        private Random random = new Random();
+
+
+        public Bank()
+        {
+            historia = new Historia();
+        }
 
         public Klient dodajKlienta(Klient klient)
         {
@@ -69,7 +75,8 @@ namespace Bank
 
 
 
-        public int LiczbaKlientow() {
+        public int LiczbaKlientow()
+        {
             return klienci.Count();
         }
 

@@ -24,13 +24,16 @@ namespace Bank
 
             // Wykonaj wplaty 1000 PLN na konto Krystiana i 500 PLN na konto Pawła
             bank.Wykonaj(new Wplata(rachunekKrystiana, new Pieniadze(100000)));
-            bank.Wykonaj(new Wyplata(rachunekKrystiana, new Pieniadze(100000)));
+          //  bank.Wykonaj(new Wyplata(rachunekKrystiana, new Pieniadze(100000)));
 
             Lokata lokataKrystiana = bank.DodajLokate(krystian, DateTime.Now, 3);
 
             bank.Wykonaj(new Wplata(lokataKrystiana, new Pieniadze(10000000)));
+            bank.Wykonaj(new RozwiazLokate(lokataKrystiana,rachunekKrystiana,DateTime.Now.AddDays(-1)));
+
             bank.WyswietlHistorie();
 
+            Console.WriteLine(rachunekKrystiana.Pieniadze);
 
 
 

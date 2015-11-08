@@ -18,6 +18,7 @@ namespace Bank
         public HistoriaKlienta(Klient klient)
         {
             this.klient = klient;
+ 
         }
 
         public new bool Dodaj(Operacja operacja) {

@@ -12,6 +12,7 @@ namespace Bank
         protected static List<WpisWHistorii> historia;
 
         public Historia() {
+            if (historia == null)
             historia = new List<WpisWHistorii>();
         }
 
