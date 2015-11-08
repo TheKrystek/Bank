@@ -74,5 +74,9 @@ namespace Bank
             return kwotaRaty;
         }
 
+        public override Pieniadze DostepneSrodki()
+        {
+            return DoSplaty;
+        }
     }
 }

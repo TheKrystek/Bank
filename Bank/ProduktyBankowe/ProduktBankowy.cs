@@ -23,7 +23,7 @@ namespace Bank
             set { id = value; }
         }
 
-
+        public abstract Pieniadze DostepneSrodki();
 
         public Klient Klient()
         {

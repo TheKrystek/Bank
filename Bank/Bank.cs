@@ -12,6 +12,11 @@ namespace Bank
         private List<Klient> klienci = new List<Klient>();
         private List<ProduktBankowy> produktyBankowe = new List<ProduktBankowy>();
         private Historia historia;
+
+        public Historia Historia
+        {
+            get { return historia; }
+        }
         private Random random = new Random();
 
 

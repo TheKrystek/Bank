@@ -65,5 +65,10 @@ namespace Bank
             return String.Format("rachunek {0} klienta {1}. Saldo: {2}", Id, klient, pieniadze);
         }
 
+
+        public override Pieniadze DostepneSrodki()
+        {
+            return Pieniadze;
+        }
     }
 }

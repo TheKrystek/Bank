@@ -42,20 +42,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank.cs" />
-    <Compile Include="HistoriaProduktu.cs" />
+    <Compile Include="Historia\HistoriaProduktu.cs" />
     <Compile Include="Debet.cs" />
-    <Compile Include="HistoriaKlienta.cs" />
-    <Compile Include="IModelOdsetek.cs" />
+    <Compile Include="Historia\HistoriaKlienta.cs" />
+    <Compile Include="Odsetki\IModelOdsetek.cs" />
     <Compile Include="Operacje\RozwiazLokate.cs" />
     <Compile Include="Operacje\NaliczOdsetkiNaRachunku.cs" />
     <Compile Include="Operacje\SplacRateKredytu.cs" />
-    <Compile Include="ProstyModelOdsetek.cs" />
+    <Compile Include="Odsetki\ProstyModelOdsetek.cs" />
     <Compile Include="Operacje\Przelew.cs" />
+    <Compile Include="Raporty\RaportProduktowSumaSrodkow.cs" />
+    <Compile Include="Raporty\IRaportProdutkow.cs" />
+    <Compile Include="Raporty\IRaport.cs" />
+    <Compile Include="Raporty\IRaportHistoryczny.cs" />
+    <Compile Include="Raporty\RaportHistorycznyZliczajacy.cs" />
     <Compile Include="RozneWalutyException.cs" />
-    <Compile Include="WpisWHistorii.cs" />
+    <Compile Include="Historia\WpisWHistorii.cs" />
     <Compile Include="Operacje\Wyplata.cs" />
     <Compile Include="Operacje\Operacja.cs" />
-    <Compile Include="Historia.cs" />
+    <Compile Include="Historia\Historia.cs" />
     <Compile Include="Operacje\OpracjaZlozona.cs" />
     <Compile Include="Klient.cs" />
     <Compile Include="ProduktyBankowe\Kredyt.cs" />

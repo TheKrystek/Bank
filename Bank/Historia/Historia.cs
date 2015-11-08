@@ -29,5 +29,9 @@ namespace Bank
             }
         }
 
+        public List<WpisWHistorii> Wpisy() {
+            return historia;
+        }
+
     } 
 }
