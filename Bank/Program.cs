@@ -18,25 +18,21 @@ namespace Bank
             bank.WyswietlKlientow();
 
             // Stworz rachunki bankowe
-            RachunekBankowy rachunekKrystiana = bank.dodajRachunekBankowy(krystian);
-            RachunekDebetowy rachunekPawla = bank.dodajRachunekDebetowy(pawel, new Pieniadze(1000));
+            RachunekBankowy rachunekKrystiana = bank.DodajRachunekBankowy(krystian);
+            RachunekDebetowy rachunekPawla = bank.DodajRachunekDebetowy(pawel, new Pieniadze(1000));
+
 
             // Wykonaj wplaty 1000 PLN na konto Krystiana i 500 PLN na konto Pawła
             bank.Wykonaj(new Wplata(rachunekKrystiana, new Pieniadze(100000)));
             bank.Wykonaj(new Wyplata(rachunekKrystiana, new Pieniadze(100000)));
 
+            Lokata lokataKrystiana = bank.DodajLokate(krystian, DateTime.Now, 3);
 
-
-            //Wyswietl historie operacji
+            bank.Wykonaj(new Wplata(lokataKrystiana, new Pieniadze(10000000)));
             bank.WyswietlHistorie();
 
-            //bank.Wykonaj(new Przelew(rachunekPawla,rachunekKrystiana,new pieniadze(1500)));
-            //bank.Wykonaj(new NaliczOdsetki(rachunekKrystiana,new ProstyModelOdsetek(10)));
 
-            krystian.WyswietlHistorie();
 
-            //// Wyswietl historie operacji
-            //bank.WyswietlHistorie();
 
             Console.ReadLine();
         }

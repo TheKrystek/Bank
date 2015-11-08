@@ -21,7 +21,6 @@ namespace Bank
         }
 
         public void Wyswietl() {
-
             Console.WriteLine("+++HISTORIA+++");
             foreach (var operacja in historia)
             {

@@ -13,11 +13,17 @@ namespace Bank
         protected DateTime dataUtworzenia;
         protected HistoriaProduktu historia;
 
+        public ProduktBankowy() {
+            this.historia = new HistoriaProduktu(this);
+        }
+
         protected Int64 Id
         {
             get { return id; }
             set { id = value; }
         }
+
+
 
         public Klient Klient()
         {

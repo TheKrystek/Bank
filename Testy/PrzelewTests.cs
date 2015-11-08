@@ -21,8 +21,8 @@ namespace Bank.Tests
             bank = new Bank();
             klientA = bank.dodajKlienta(new Klient("Jon", "Doe"));
             klientB = bank.dodajKlienta(new Klient("Tyler", "Durden"));
-            rachunekA = bank.dodajRachunekBankowy(klientA);
-            rachunekB = bank.dodajRachunekBankowy(klientA);
+            rachunekA = bank.DodajRachunekBankowy(klientA);
+            rachunekB = bank.DodajRachunekBankowy(klientA);
             bank.Wykonaj(new Wplata(rachunekA, new Pieniadze(10000)));
         }
 

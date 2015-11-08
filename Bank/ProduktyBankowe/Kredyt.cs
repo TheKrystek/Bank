@@ -28,7 +28,6 @@ namespace Bank
             this.splaconychRat = 0;
             this.terminSplaty = termin;
             this.modelOdsetek = modelOdsetek;
-            this.historia = new HistoriaProduktu(this);
         }
 
 

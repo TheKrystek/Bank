@@ -20,7 +20,7 @@ namespace Bank.Tests
         {
             bank = new Bank();
             klient = bank.dodajKlienta(new Klient("Jon", "Doe"));
-            rachunek = bank.dodajRachunekBankowy(klient);
+            rachunek = bank.DodajRachunekBankowy(klient);
             bank.Wykonaj(new Wplata(rachunek, new Pieniadze(10000)));
         }
 

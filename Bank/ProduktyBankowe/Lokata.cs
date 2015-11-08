@@ -6,7 +6,31 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class Lokata
+    public class Lokata : RachunekBankowy
     {
+        private IModelOdsetek modelOdsetek;
+
+        public IModelOdsetek ModelOdsetek
+        {
+            get { return modelOdsetek; }
+        }
+
+
+
+        private DateTime dataZakonczenia;
+
+        public DateTime DataZakonczenia
+        {
+            get { return dataZakonczenia; }
+        }
+
+        public Lokata(Klient klient, IModelOdsetek modelOdsetek, DateTime terminZakonczenia, Int64 id = 0)
+            : base(klient, id)
+        {
+            this.modelOdsetek = modelOdsetek;
+            this.dataZakonczenia = terminZakonczenia;
+        }
+
+
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Debet.cs" />
     <Compile Include="HistoriaKlienta.cs" />
     <Compile Include="IModelOdsetek.cs" />
+    <Compile Include="Operacje\RozwiazLokate.cs" />
     <Compile Include="Operacje\NaliczOdsetkiNaRachunku.cs" />
     <Compile Include="Operacje\SplacRateKredytu.cs" />
     <Compile Include="ProstyModelOdsetek.cs" />

@@ -20,7 +20,7 @@ namespace Bank
             return klient;
         }
 
-        public RachunekBankowy dodajRachunekBankowy(Klient klient)
+        public RachunekBankowy DodajRachunekBankowy(Klient klient)
         {
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
@@ -32,7 +32,7 @@ namespace Bank
         }
 
 
-        public RachunekDebetowy dodajRachunekDebetowy(Klient klient, Pieniadze debet)
+        public RachunekDebetowy DodajRachunekDebetowy(Klient klient, Pieniadze debet)
         {
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
@@ -44,7 +44,7 @@ namespace Bank
         }
 
 
-        public Kredyt dodajKredyt(Klient klient, Pieniadze kwota, double oprocentowanie = 10, int iloscRat = 2)
+        public Kredyt DodajKredyt(Klient klient, Pieniadze kwota, double oprocentowanie = 10, int iloscRat = 2)
         {
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
@@ -54,6 +54,20 @@ namespace Bank
             produktyBankowe.Add(kredyt);
             return kredyt;
         }
+
+
+        public Lokata DodajLokate(Klient klient, DateTime termin, double oprocentowanie = 3)
+        {
+            if (!klienci.Contains(klient))
+                klienci.Add(klient);
+
+            Lokata lokata = new Lokata(klient, new ProstyModelOdsetek(oprocentowanie), termin);
+
+            produktyBankowe.Add(lokata);
+            return lokata;
+        }
+
+
 
         public int LiczbaKlientow() {
             return klienci.Count();
