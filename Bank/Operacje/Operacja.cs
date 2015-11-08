@@ -19,7 +19,10 @@ namespace Bank
             get { return dataWykonania; }
             set { dataWykonania = value; }
         }
+
         public abstract Klient Klient();
+        public abstract ProduktBankowy Produkt();
+
 
         public abstract String Opis();
 

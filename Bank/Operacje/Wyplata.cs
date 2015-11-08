@@ -32,5 +32,9 @@ namespace Bank
         {
             return rachunek.Klient();
         }
+        public override ProduktBankowy Produkt()
+        {
+            return rachunek;
+        }
     }
 }

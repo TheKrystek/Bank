@@ -6,15 +6,21 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class WpisWHistorii
+    public class WpisWHistorii
     {
         private Klient klient;
         private Operacja operacja;
-        private string opis; 
+        private string opis;
+        private ProduktBankowy produkt;
 
         public Klient Klient
         {
             get { return klient; }
+        }
+
+        public ProduktBankowy Produkt
+        {
+            get { return produkt; }
         }
 
         public Operacja Operacja
@@ -26,6 +32,7 @@ namespace Bank
             this.klient = operacja.Klient();
             this.operacja = operacja;
             this.opis = operacja.Opis();
+            this.produkt = operacja.Produkt();
         }
 
 

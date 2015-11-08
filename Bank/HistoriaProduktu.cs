@@ -8,16 +8,16 @@ namespace Bank
 {
     /// <summary>
     /// Klasa dekorator. 
-    /// Udostępnia klientowi historię operacji.
+    /// Udostępnia produktowi historię operacji.
     /// </summary>
-   public class HistoriaKlienta : Historia
+   public class HistoriaProduktu : Historia
     {
 
-        private Klient klient;
+        private ProduktBankowy produkt;
 
-        public HistoriaKlienta(Klient klient)
+        public HistoriaProduktu(ProduktBankowy produkt)
         {
-            this.klient = klient;
+            this.produkt = produkt;
         }
 
         public new bool Dodaj(Operacja operacja) {
@@ -25,8 +25,8 @@ namespace Bank
         }
 
         public new void Wyswietl() {
-            Console.WriteLine("+++HISTORIA {0} +++",klient.ToString().ToUpper());
-            foreach (var operacja in historia.Where(o => o.Klient == klient))
+            Console.WriteLine("+++HISTORIA {0} +++",produkt.ToString().ToUpper());
+            foreach (var operacja in historia.Where(o => o.Produkt == produkt))
                 Console.WriteLine(operacja);
         }
 

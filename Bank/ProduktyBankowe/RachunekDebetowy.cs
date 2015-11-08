@@ -13,6 +13,7 @@ namespace Bank
             : base(klient, id)
         {
             this.debet = debet;
+            this.historia = new HistoriaProduktu(this);
         }
 
 

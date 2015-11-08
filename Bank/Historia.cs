@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    class Historia
+    public class Historia
     {
 
         protected static List<WpisWHistorii> historia;

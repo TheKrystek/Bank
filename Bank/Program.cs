@@ -35,7 +35,6 @@ namespace Bank
 
             krystian.WyswietlHistorie();
 
-
             //// Wyswietl historie operacji
             //bank.WyswietlHistorie();
 

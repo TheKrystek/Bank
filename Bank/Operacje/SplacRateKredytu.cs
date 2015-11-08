@@ -37,5 +37,10 @@ namespace Bank
         {
             return kredyt.Klient();
         }
+
+        public override ProduktBankowy Produkt()
+        {
+            return kredyt;
+        }
     }
 }

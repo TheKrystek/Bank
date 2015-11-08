@@ -20,6 +20,7 @@ namespace Bank
             this.klient = klient;
             this.pieniadze = new Pieniadze(0);
             this.Id = id;
+            this.historia = new HistoriaProduktu(this);
         }
 
         public virtual bool WyplacPieniadze(Pieniadze pieniadze)

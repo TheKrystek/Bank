@@ -11,7 +11,7 @@ namespace Bank
         protected Int64 id;
         protected Klient klient;
         protected DateTime dataUtworzenia;
-
+        protected HistoriaProduktu historia;
 
         protected Int64 Id
         {
@@ -30,5 +30,9 @@ namespace Bank
             set { dataUtworzenia = value; }
         }
 
+        public void WyswietlHistorie()
+        {
+            historia.Wyswietl();
+        }
     }
 }
