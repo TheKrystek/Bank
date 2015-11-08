@@ -12,7 +12,6 @@ namespace Bank
         private RachunekBankowy rachunek;
         private Lokata lokata;
         private DateTime dataRozwiazania;
-        private bool rozwiazana = false;
 
 
         // okresl date rozwiazania bo chcemy rozwiazac albo przed terminem lokaty albo po
@@ -24,33 +23,32 @@ namespace Bank
 
 
             operacjaPierwsza = new NaliczOdsetkiNaRachunku(lokata, lokata.ModelOdsetek);
-            operacjaDruga = new Przelew(lokata,rachunek,lokata.Pieniadze);
+            operacjaDruga = new Przelew(lokata, rachunek, lokata.Pieniadze);
         }
 
         public override string Opis()
         {
-            return String.Format("rozwiazanie lokaty {0} i wplata na {1}",lokata,rachunek);
+            return String.Format("rozwiazanie lokaty {0} i wplata na {1}", lokata, rachunek);
         }
 
         public override bool Wykonaj()
         {
             // Nie mozna rozwiazac juz roziazanej lokaty
-            if (rozwiazana)
+            if (lokata.Rozwiazana)
                 return false;
 
-            // Jezeli chcemy rozwiazac lokate przed czasem to nie naliczamy odsetek
-            if (dataRozwiazania < lokata.DataZakonczenia)
-            {
-                // Wykonaj przelew z lokaty na rachunek i zwroc wynik
-                return (rozwiazana = operacjaDruga.Wykonaj());
-            }
+            bool wynikPierwszej = true;
 
-            // Jezeli data rozwiazania jest pozniejsza to najpierw nalicz odsetki
-            if (operacjaPierwsza.Wykonaj())
-                // Wykonaj przelew z lokaty na rachunek i zwroc wynik
-                return (rozwiazana = operacjaDruga.Wykonaj());
+            // Jezeli chcemy rozwiazac lokate po czasie to naliczamy odsetki
+            if (dataRozwiazania > lokata.DataZakonczenia)
+                wynikPierwszej = operacjaPierwsza.Wykonaj();
 
-            return false;
+            if (!wynikPierwszej)
+                return false;
+
+            // Wykonaj przelew z lokaty na rachunek i zwroc wynik
+            lokata.Rozwiazana = operacjaDruga.Wykonaj();
+            return lokata.Rozwiazana;
         }
 
 

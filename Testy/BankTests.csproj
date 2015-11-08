@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="SplacRateKredytuTests.cs" />
+    <Compile Include="RozwiazLokateTests.cs" />
+    <Compile Include="WyplataTests.cs" />
     <Compile Include="DebetTests.cs" />
     <Compile Include="KredytTests.cs" />
     <Compile Include="PieniadzeTests.cs" />
@@ -57,7 +60,7 @@
     <Compile Include="RachunekBankowyTests.cs" />
     <Compile Include="PrzelewTests.cs" />
     <Compile Include="RachunekDebetowyTests.cs" />
-    <Compile Include="WyplataTests.cs" />
+    <Compile Include="NaliczOdsetkiNaRachunkuTests.cs" />
     <Compile Include="WplataTests.cs" />
   </ItemGroup>
   <ItemGroup>

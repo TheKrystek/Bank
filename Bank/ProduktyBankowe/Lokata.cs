@@ -9,12 +9,18 @@ namespace Bank
     public class Lokata : RachunekBankowy
     {
         private IModelOdsetek modelOdsetek;
+        private bool rozwiazana = false;
+
+        public bool Rozwiazana
+        {
+            get { return rozwiazana; }
+            set { rozwiazana = value; }
+        }
 
         public IModelOdsetek ModelOdsetek
         {
             get { return modelOdsetek; }
         }
-
 
 
         private DateTime dataZakonczenia;

@@ -11,26 +11,6 @@ namespace Bank.Tests
     public class KredytTests
     {
         
-
-        [TestMethod()]
-        public void SplacRateTest()
-        {
-            Kredyt k = new Kredyt(new Pieniadze(1000000), new ProstyModelOdsetek(10), 2);
-            SplacRateKredytu a = new SplacRateKredytu(k);
-            a.Wykonaj();
-            Assert.AreEqual(new Pieniadze(500000), k.Splacono);
-        }
-
-        [TestMethod()]
-        public void SplacDwieRatyTest()
-        {
-            Kredyt k = new Kredyt(new Pieniadze(1000000), new ProstyModelOdsetek(10), 2);
-            SplacRateKredytu a = new SplacRateKredytu(k);
-            a.Wykonaj();
-            a.Wykonaj();
-            Assert.AreEqual(new Pieniadze(0), k.DoSplaty);
-        }
-
         [TestMethod()]
         public void ObliczWysokoscRatyTest()
         {
