@@ -78,5 +78,10 @@ namespace Bank
         {
             return DoSplaty;
         }
+
+        public override string ToString()
+        {
+            return String.Format("kredyt klienta {0}", klient);
+        }
     }
 }

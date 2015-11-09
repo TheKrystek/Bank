@@ -77,7 +77,7 @@ namespace Bank
             Pieniadze suma = new Pieniadze();
             suma.Dodaj(pieniadze);
             suma.Dodaj(debet.Stan);
-            return String.Format("Rachunek debetowy {0} klienta {1}.\r\nSaldo: {2}, Debet: {3}/{4}, Dostępne środki: {5}", Id, klient, pieniadze, debet.Stan, debet.Limit, suma);
+            return String.Format("rachunek debetowy klienta {0}", klient);
         }
 
     }

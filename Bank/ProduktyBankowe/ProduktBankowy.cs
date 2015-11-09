@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public abstract class ProduktBankowy
+    public abstract class ProduktBankowy 
     {
         protected Int64 id;
         protected Klient klient;

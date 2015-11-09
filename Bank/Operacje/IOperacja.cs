@@ -12,5 +12,9 @@ namespace Bank
     public interface IOperacja
     {
         bool Wykonaj();
+        List<WpisWHistorii> Historia();
+        string Opis();
+
+        DateTime DataWykonania { get; set; }
     }
 }

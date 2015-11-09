@@ -18,7 +18,8 @@ namespace Bank
         {
             this.DataUtworzenia = DateTime.Now;
             this.klient = klient;
-            this.pieniadze = new Pieniadze(0);
+            if (this.pieniadze == null)
+                this.pieniadze = new Pieniadze(0);
             this.Id = id;
         }
 
@@ -62,7 +63,7 @@ namespace Bank
 
         public override string ToString()
         {
-            return String.Format("rachunek {0} klienta {1}. Saldo: {2}", Id, klient, pieniadze);
+            return String.Format("rachunek klienta {0}", klient);
         }
 
 

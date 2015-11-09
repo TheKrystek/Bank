@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class SplacRateKredytu : Operacja
+    public class SplacRateKredytu : OperacjaProsta
     {
         private Kredyt kredyt;
 
@@ -31,16 +31,6 @@ namespace Bank
             Pieniadze doSplacenia = kredyt.ObliczWysokoscRaty(kredyt.SplaconychRat); // Taka czesc musielismy wplacic: doSplacenia = czescSplaty+%
             kredyt.Splacono += czescSplaty;
             return true;
-        }
-
-        public override Klient Klient()
-        {
-            return kredyt.Klient();
-        }
-
-        public override ProduktBankowy Produkt()
-        {
-            return kredyt;
         }
     }
 }

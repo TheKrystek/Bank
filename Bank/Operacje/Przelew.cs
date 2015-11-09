@@ -23,7 +23,7 @@ namespace Bank
 
         public override string Opis()
         {
-            return String.Format("przelew {0} z {1} na {2}",pieniadze,rachunekA,rachunekB);
+            return String.Format("przelew z {0} na {1}", rachunekA, rachunekB);
         }
 
         public override bool Wykonaj()
@@ -31,18 +31,8 @@ namespace Bank
             if (!operacjaPierwsza.Wykonaj())
                 return false;
 
-            return operacjaDruga.Wykonaj();
-        }
-
-
-        public override Klient Klient()
-        {
-            return rachunekA.Klient();
-        }
-
-        public override ProduktBankowy Produkt()
-        {
-            return rachunekA;
+            bool wynik = operacjaDruga.Wykonaj();
+            return wynik;
         }
     }
 }

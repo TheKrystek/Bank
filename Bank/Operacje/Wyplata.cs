@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class Wyplata : Operacja
+    public class Wyplata : OperacjaProsta
     {
         private Pieniadze pieniadze;
         private RachunekBankowy rachunek;
-
 
         public Wyplata(RachunekBankowy rachunek, Pieniadze pieniadze)
         {
@@ -20,21 +19,13 @@ namespace Bank
 
         public override string Opis()
         {
-            return String.Format("wyplata {0} z {1}",pieniadze,rachunek);
+            return String.Format("wyplata pieniędzy z {0}",rachunek);
         }
 
         public override bool Wykonaj()
         {
-            return rachunek.WyplacPieniadze(pieniadze);
-        }
-
-        public override Klient Klient()
-        {
-            return rachunek.Klient();
-        }
-        public override ProduktBankowy Produkt()
-        {
-            return rachunek;
+            historia.Add(new WpisWHistorii(this, rachunek, pieniadze));
+            return rachunek.WyplacPieniadze(pieniadze.Clone() as Pieniadze);
         }
     }
 }

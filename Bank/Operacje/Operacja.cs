@@ -6,26 +6,38 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public abstract class Operacja: IOperacja
+    public abstract class OperacjaProsta : IOperacja
     {
-        private DateTime dataWykonania;
+        protected DateTime dataWykonania;
+        protected List<WpisWHistorii> historia;
 
-        public Operacja() {
-            dataWykonania = DateTime.Now;
-        }
-
-        public DateTime DataWykonania
+        public OperacjaProsta(DateTime dataWykonania)
         {
-            get { return dataWykonania; }
-            set { dataWykonania = value; }
+            this.dataWykonania = dataWykonania;
         }
 
-        public abstract Klient Klient();
-        public abstract ProduktBankowy Produkt();
-
+        public OperacjaProsta()
+            : this(DateTime.Now)
+        {
+            if (historia == null)
+                historia = new List<WpisWHistorii>();
+        }
 
         public abstract String Opis();
-
         public abstract bool Wykonaj();
+        public virtual List<WpisWHistorii> Historia()
+        {
+            return historia;
+        }
+
+        DateTime IOperacja.DataWykonania
+        {
+
+            get { return dataWykonania; }
+            set
+            {
+                throw new InvalidOperationException();
+            }
+        }
     }
 }

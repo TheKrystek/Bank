@@ -50,16 +50,5 @@ namespace Bank
             lokata.Rozwiazana = operacjaDruga.Wykonaj();
             return lokata.Rozwiazana;
         }
-
-
-        public override Klient Klient()
-        {
-            return lokata.Klient();
-        }
-
-        public override ProduktBankowy Produkt()
-        {
-            return lokata;
-        }
     }
 }

@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 namespace Bank
 {
     /// <summary>
-    /// Klasa dekorator. 
+    /// Klasa pełnomocnik. 
     /// Udostępnia produktowi historię operacji.
     /// </summary>
    public class HistoriaProduktu : Historia
-    {
-
+   {
         private ProduktBankowy produkt;
 
         public HistoriaProduktu(ProduktBankowy produkt)
@@ -20,7 +19,7 @@ namespace Bank
             this.produkt = produkt;
         }
 
-        public new bool Dodaj(Operacja operacja) {
+        public new bool Dodaj(OperacjaProsta operacja) {
             return false;
         }
 
@@ -29,6 +28,5 @@ namespace Bank
             foreach (var operacja in historia.Where(o => o.Produkt == produkt))
                 Console.WriteLine(operacja);
         }
-
     } 
 }

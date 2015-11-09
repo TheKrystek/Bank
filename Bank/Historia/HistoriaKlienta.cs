@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Bank
 {
     /// <summary>
-    /// Klasa dekorator. 
+    /// Klasa pełnomocnik. 
     /// Udostępnia klientowi historię operacji.
     /// </summary>
    public class HistoriaKlienta : Historia
@@ -21,7 +21,7 @@ namespace Bank
  
         }
 
-        public new bool Dodaj(Operacja operacja) {
+        public new bool Dodaj(OperacjaProsta operacja) {
             return false;
         }
 

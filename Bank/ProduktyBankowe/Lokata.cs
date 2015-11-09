@@ -37,6 +37,10 @@ namespace Bank
             this.dataZakonczenia = terminZakonczenia;
         }
 
+        public override string ToString()
+        {
+            return String.Format("lokata klienta {0}", klient);
+        }
 
     }
 }

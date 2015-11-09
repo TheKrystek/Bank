@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class Wplata : Operacja
+    public class Wplata : OperacjaProsta
     {
         private Pieniadze pieniadze;
         private RachunekBankowy rachunek;
@@ -18,21 +18,13 @@ namespace Bank
 
         public override string Opis()
         {
-            return String.Format("wpłata {0} na {1}",pieniadze,rachunek);
+            return String.Format("wpłata pieniędzy na {0}",rachunek);
         }
 
         public override bool Wykonaj()
         {
+            historia.Add(new WpisWHistorii(this, rachunek, pieniadze));
             return rachunek.WplacPieniadze(pieniadze);
-        }
-
-        public override Klient Klient()
-        {
-            return rachunek.Klient();
-        }
-        public override ProduktBankowy Produkt()
-        {
-            return rachunek;
         }
     }
 }

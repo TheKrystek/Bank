@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class NaliczOdsetkiNaRachunku : Operacja
+    public class NaliczOdsetkiNaRachunku : OperacjaProsta
     {
 
         private IModelOdsetek modelOdsetek;
@@ -31,14 +31,9 @@ namespace Bank
             return rachunek.Pieniadze.Dodaj(przyrost);
         }
 
-        public override Klient Klient()
+        public override List<WpisWHistorii> Historia()
         {
-            return rachunek.Klient();
-        }
-
-        public override ProduktBankowy Produkt()
-        {
-            return rachunek;
+            return historia;
         }
     }
 }

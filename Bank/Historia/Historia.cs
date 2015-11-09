@@ -16,8 +16,11 @@ namespace Bank
             historia = new List<WpisWHistorii>();
         }
 
-        public bool Dodaj(Operacja operacja) {
-            historia.Add(new WpisWHistorii(operacja));
+        public bool Dodaj(IOperacja operacja) {
+            foreach (var zdarzenie in operacja.Historia())
+                zdarzenie.Zapisz();
+
+            historia.AddRange(operacja.Historia());
             return true;
         }
 

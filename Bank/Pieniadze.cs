@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class Pieniadze
+    public class Pieniadze : ICloneable
     {
         public enum Waluty
         {
@@ -154,5 +154,10 @@ namespace Bank
 
         #endregion
 
+
+        public object Clone()
+        {
+            return new Pieniadze(wartosc,waluta);
+        }
     }
 }

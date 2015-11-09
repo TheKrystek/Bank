@@ -9,8 +9,16 @@ namespace Bank
     /// <summary>
     /// Klasa rozszerzająca operację 
     /// </summary>
-    public abstract class OpracjaZlozona : Operacja
+    public abstract class OpracjaZlozona : OperacjaProsta
     {
-        protected Operacja operacjaPierwsza, operacjaDruga;
+        protected OperacjaProsta operacjaPierwsza, operacjaDruga;
+
+        public override List<WpisWHistorii> Historia() {
+            historia.Clear();
+            historia.AddRange(operacjaPierwsza.Historia());
+            historia.AddRange(operacjaDruga.Historia());
+            return historia;
+        } 
+
     }
 }
