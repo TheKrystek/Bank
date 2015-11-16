@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Raporty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class WpisWHistorii
+    public class WpisWHistorii : IRaportowalny
     {
         private Pieniadze pieniadze;
         private Klient klient;
@@ -19,6 +20,10 @@ namespace Bank
         {
             this.operacja = operacja;
             this.klient = klient;
+
+            if (this.klient == null)
+                this.klient = produkt.Klient();
+
             this.pieniadze = pieniadze.Clone() as Pieniadze;
             this.produkt = produkt;
             this.saldoPrzed = produkt.DostepneSrodki().Clone() as Pieniadze;
@@ -54,5 +59,9 @@ namespace Bank
             return String.Format("[{0:dd.MM.yy HH:mm:ss}] {2}\r\n\tKwota operacji={1}\r\n\tSaldo przed: {3}\r\n\tSaldo po: {4}\r\n", operacja.DataWykonania, pieniadze, operacja.Opis(), saldoPrzed, saldoPo);
         }
 
+        public void Raportuj(IRaport raport)
+        {
+            raport.ObsluzHistorie(this);
+        }
     }
 }

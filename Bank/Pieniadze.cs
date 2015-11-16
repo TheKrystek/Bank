@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
+    /// <summary>
+    /// Wartosc przechowywana jest w int i dzielona przez 100 dla uzyskania czesci ulamkowej
+    /// </summary>
     public class Pieniadze : ICloneable
     {
         public enum Waluty

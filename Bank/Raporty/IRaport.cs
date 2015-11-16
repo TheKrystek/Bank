@@ -5,10 +5,15 @@ using System.Text;
 
 namespace Bank.Raporty
 {
-    interface IRaport
+    public interface IRaport
     {
-        string Wynik();
+        void ObsluzHistorie(WpisWHistorii historia);
+        void ObsluzOperacje(IOperacja operacja);
+        void ObsluzKlienta(Klient klient);
 
-        void Generuj();
+        // W sumie tu powinny być jeszcze metody do obslugi wszystkich klas podrzędnych do produktu bankowego
+        void ObsluzProduktBankowy(ProduktBankowy produkt);
+
+        string Wynik();
     }
 }

@@ -36,7 +36,7 @@ namespace Bank.Tests
             bank.Wykonaj(new Wplata(rachunek, new Pieniadze(40000)));
 
             // Generuj raport
-            RaportHistorycznyZliczajacy raport = new RaportHistorycznyZliczajacy(bank.Historia);
+            HistorycznyLiczbaWpisow raport = new HistorycznyLiczbaWpisow(bank.Historia);
             raport.Generuj();
 
             Assert.AreEqual(4,raport.LiczbaWpisow);

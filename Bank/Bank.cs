@@ -110,7 +110,7 @@ namespace Bank
         }
 
 
-        public bool Wykonaj(OperacjaProsta operacja)
+        public bool Wykonaj(IOperacja operacja)
         {
             bool wynik = operacja.Wykonaj();
             if (wynik)

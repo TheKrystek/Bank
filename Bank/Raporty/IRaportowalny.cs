@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bank.Raporty
 {
-    interface IRaportHistoryczny : IRaport
+    public interface IRaportowalny
     {
-        void Odwiedz(Historia historia);
+        void Raportuj(IRaport raport);
     }
 }

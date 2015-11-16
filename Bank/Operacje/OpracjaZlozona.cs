@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Raporty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,12 @@ namespace Bank
             historia.AddRange(operacjaPierwsza.Historia());
             historia.AddRange(operacjaDruga.Historia());
             return historia;
-        } 
+        }
 
+        public void Raportuj(IRaport raport)
+        {
+            raport.ObsluzOperacje(operacjaPierwsza);
+            raport.ObsluzOperacje(operacjaDruga);
+        }
     }
 }

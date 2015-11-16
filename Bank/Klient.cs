@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Raporty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-   public  class Klient
+   public  class Klient : IRaportowalny
     {
 
        private String PESEL, imie, nazwisko, ulica, numerDomu, miasto;
@@ -22,13 +23,24 @@ namespace Bank
             this.historia = new HistoriaKlienta(this);
         }
 
-        override
-        public string ToString() {
+
+        public override string ToString()
+        {
             return String.Format("{0} {1}",imie,nazwisko);
         }
 
         public void WyswietlHistorie() {
             historia.Wyswietl();
+        }
+
+        public HistoriaKlienta Historia()
+        {
+            return historia;
+        }
+
+        public void Raportuj(IRaport raport)
+        {
+            raport.ObsluzKlienta(this);
         }
     }
 

@@ -23,9 +23,14 @@ namespace Bank
             return false;
         }
 
+        public override IEnumerable<WpisWHistorii> Wpisy()
+        {
+            return historia.Where(o => o.Produkt == produkt);
+        }
+
         public new void Wyswietl() {
             Console.WriteLine("+++HISTORIA {0} +++",produkt.ToString().ToUpper());
-            foreach (var operacja in historia.Where(o => o.Produkt == produkt))
+            foreach (var operacja in Wpisy())
                 Console.WriteLine(operacja);
         }
     } 

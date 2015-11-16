@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Raporty;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,12 @@ namespace Bank
             {
                 throw new InvalidOperationException();
             }
+        }
+
+
+        public void Raportuj(IRaport raport)
+        {
+            raport.ObsluzOperacje(this);
         }
     }
 }
