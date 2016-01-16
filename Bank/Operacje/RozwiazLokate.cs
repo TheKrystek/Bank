@@ -22,7 +22,7 @@ namespace Bank
             this.dataRozwiazania = dataRozwiazania;
 
 
-            operacjaPierwsza = new NaliczOdsetkiNaRachunku(lokata, lokata.ModelOdsetek);
+            operacjaPierwsza = new NaliczOdsetki(lokata, lokata.ModelOdsetek);
             operacjaDruga = new Przelew(lokata, rachunek, lokata.Pieniadze);
         }
 

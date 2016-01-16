@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
@@ -10,7 +8,7 @@ namespace Bank
     /// Klasa pełnomocnik. 
     /// Udostępnia produktowi historię operacji.
     /// </summary>
-   public class HistoriaProduktu : Historia
+    public class HistoriaProduktu : Historia
    {
         private ProduktBankowy produkt;
 
@@ -19,7 +17,7 @@ namespace Bank
             this.produkt = produkt;
         }
 
-        public new bool Dodaj(OperacjaProsta operacja) {
+        public bool Dodaj(OperacjaProsta operacja) {
             return false;
         }
 

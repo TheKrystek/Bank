@@ -27,15 +27,33 @@ namespace Bank.Tests
         [TestMethod()]
         public void NaliczOdsetki_PowiodloSie()
         {
-            Assert.IsTrue(bank.Wykonaj(new NaliczOdsetkiNaRachunku(rachunek,new ProstyModelOdsetek(10))));
+            Assert.IsTrue(bank.Wykonaj(new NaliczOdsetki(rachunek,new LiniowyModelOdsetek(10))));
         }
 
 
         [TestMethod()]
         public void NaliczOdsetki_NaliczProcent()
         {
-            bank.Wykonaj(new NaliczOdsetkiNaRachunku(rachunek, new ProstyModelOdsetek(10)));
+            bank.Wykonaj(new NaliczOdsetki(rachunek));
             Assert.AreEqual(new Pieniadze(11000), rachunek.Pieniadze);
+        }
+
+
+        [TestMethod()]
+        public void NaliczOdsetki_DwaRazy()
+        {
+            bank.Wykonaj(new NaliczOdsetki(rachunek)); // 10000 *= 1.10 = 11000
+            bank.Wykonaj(new NaliczOdsetki(rachunek)); // 11000 *= 1.10 = 12100
+            Assert.AreEqual(new Pieniadze(12100), rachunek.Pieniadze);
+        }
+
+        [TestMethod()]
+        public void NaliczOdsetki_10Razy()
+        {
+            for (int i = 0; i < 10; i++)
+                bank.Wykonaj(new NaliczOdsetki(rachunek)); 
+           
+            Assert.AreEqual(new Pieniadze(25934), rachunek.Pieniadze);
         }
 
 

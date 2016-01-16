@@ -1,15 +1,10 @@
-﻿using Bank.Raporty;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
     public class Historia
     {
-
         protected static List<WpisWHistorii> historia;
 
         public Historia() {
@@ -17,7 +12,7 @@ namespace Bank
             historia = new List<WpisWHistorii>();
         }
 
-        public bool Dodaj(IOperacja operacja) {
+        public virtual bool Dodaj(IOperacja operacja) {
             foreach (var zdarzenie in operacja.Historia())
                 zdarzenie.Zapisz();
             
@@ -34,6 +29,5 @@ namespace Bank
         public virtual IEnumerable<WpisWHistorii> Wpisy() {
             return historia;
         }
-
     } 
 }

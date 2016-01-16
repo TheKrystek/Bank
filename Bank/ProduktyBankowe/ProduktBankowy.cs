@@ -9,16 +9,17 @@ namespace Bank
 {
     public abstract class ProduktBankowy : IRaportowalny
     {
-        protected Int64 id;
+        protected long id;
         protected Klient klient;
         protected DateTime dataUtworzenia;
         protected HistoriaProduktu historia;
+        protected IModelOdsetek modelOdsetek;
 
         public ProduktBankowy() {
             this.historia = new HistoriaProduktu(this);
         }
 
-        protected Int64 Id
+        public Int64 Id
         {
             get { return id; }
             set { id = value; }
@@ -46,7 +47,6 @@ namespace Bank
         {
             return historia;
         }
-
 
         public void Raportuj(IRaport raport)
         {

@@ -42,14 +42,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank.cs" />
+    <Compile Include="Const.cs" />
     <Compile Include="Historia\HistoriaProduktu.cs" />
     <Compile Include="Debet.cs" />
     <Compile Include="Historia\HistoriaKlienta.cs" />
+    <Compile Include="KIR.cs" />
+    <Compile Include="Komisja.cs" />
     <Compile Include="Odsetki\IModelOdsetek.cs" />
+    <Compile Include="Odsetki\IOdsetki.cs" />
+    <Compile Include="Operacje\PrzelewZewnetrzny.cs" />
+    <Compile Include="PaczkaPrzelewow.cs" />
     <Compile Include="Raporty\RaportZPodsumowaniem.cs" />
     <Compile Include="Raporty\SredniaKwota.cs" />
     <Compile Include="Operacje\RozwiazLokate.cs" />
-    <Compile Include="Operacje\NaliczOdsetkiNaRachunku.cs" />
+    <Compile Include="Operacje\NaliczOdsetki.cs" />
     <Compile Include="Operacje\SplacRateKredytu.cs" />
     <Compile Include="Odsetki\ProstyModelOdsetek.cs" />
     <Compile Include="Operacje\Przelew.cs" />

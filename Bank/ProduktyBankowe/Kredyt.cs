@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Odsetki;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class Kredyt : ProduktBankowy
+    public class Kredyt : ProduktBankowy, IOdsetki
     {
         private Pieniadze kwotaKredytu;     
         private Pieniadze splacono;
@@ -82,6 +83,16 @@ namespace Bank
         public override string ToString()
         {
             return String.Format("kredyt klienta {0}", klient);
+        }
+
+        public IModelOdsetek dajModelOdsetek()
+        {
+            return modelOdsetek;
+        }
+
+        public void ustawModelOdsetek(IModelOdsetek model)
+        {
+            this.modelOdsetek = model;
         }
     }
 }

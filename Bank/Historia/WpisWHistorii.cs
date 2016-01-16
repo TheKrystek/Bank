@@ -1,9 +1,5 @@
 ﻿using Bank.Raporty;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
@@ -26,7 +22,7 @@ namespace Bank
 
             this.pieniadze = pieniadze.Clone() as Pieniadze;
             this.produkt = produkt;
-            this.saldoPrzed = produkt.DostepneSrodki().Clone() as Pieniadze;
+            saldoPrzed = produkt.DostepneSrodki().Clone() as Pieniadze;
         }
 
         public Pieniadze Pieniadze
@@ -51,7 +47,7 @@ namespace Bank
         }
 
         public void Zapisz() {
-            this.saldoPo = produkt.DostepneSrodki().Clone() as Pieniadze;
+            saldoPo = produkt.DostepneSrodki().Clone() as Pieniadze;
         }
 
         public override string ToString()

@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bank
 {
     /// <summary>
     /// Klasa pełnomocnik. 
-    /// Udostępnia klientowi historię operacji.
+    /// Udostępnia klientowi historię wyłącznie jego operacji
     /// </summary>
     public class HistoriaKlienta : Historia
     {
@@ -20,7 +18,7 @@ namespace Bank
             this.klient = klient;
         }
 
-        public new bool Dodaj(OperacjaProsta operacja)
+        public bool Dodaj(OperacjaProsta operacja)
         {
             return false;
         }

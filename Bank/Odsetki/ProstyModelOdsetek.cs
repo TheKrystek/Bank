@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Odsetki;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +7,25 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-  public  class ProstyModelOdsetek : IModelOdsetek
+  public  class LiniowyModelOdsetek : IModelOdsetek
     {
         double oprocentowanie;
-
-        public ProstyModelOdsetek(double oprocentowanie) {
+        public LiniowyModelOdsetek(double oprocentowanie) {
             this.oprocentowanie = oprocentowanie;
         }
 
-        public double DajOprocentowania(int rata = 0)
+        public Pieniadze Oblicz(ProduktBankowy produkt)
         {
-            return oprocentowanie;
-        }
-
-        public double DajKapitalizacje()
-        {
-            return 1;
+            return Oblicz((Pieniadze)produkt.DostepneSrodki().Clone());
         }
 
 
-        public Pieniadze Oblicz(Pieniadze kwota, int rata)
+        // Prosty iloczyn odsetki = kwota * oprocentowanie
+        public Pieniadze Oblicz(Pieniadze odsetki)
         {
-            return new Pieniadze((int)(DajOprocentowania() / 100 * kwota.Wartosc),
-                kwota.Waluta);
+            double nowaWartosc = odsetki.Wartosc * oprocentowanie / 100;
+            odsetki.Wartosc = (int)nowaWartosc;
+            return odsetki;           
         }
     }
 }

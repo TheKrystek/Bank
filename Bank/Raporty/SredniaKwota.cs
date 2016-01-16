@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Bank.Raporty
 {
     /// <summary>
-    /// Przykładowy raport wyliczający srednia sume operacji 
+    /// Przykładowy raport wyliczający srednia kwote operacji 
     /// dla danej waluty dla danej historii, albo dla listy operacji
     /// </summary>
     public class SredniaKwota : IRaport

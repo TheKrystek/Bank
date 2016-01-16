@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bank.Odsetki;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bank
 {
-    public class RachunekBankowy : ProduktBankowy
+    public class RachunekBankowy : ProduktBankowy, IOdsetki
     {
         protected Pieniadze pieniadze;
         public Pieniadze Pieniadze
@@ -22,6 +23,8 @@ namespace Bank
                 this.pieniadze = new Pieniadze(0);
             this.Id = id;
         }
+
+       
 
         public virtual bool WyplacPieniadze(Pieniadze pieniadze)
         {
@@ -70,6 +73,17 @@ namespace Bank
         public override Pieniadze DostepneSrodki()
         {
             return Pieniadze;
+        }
+
+        public IModelOdsetek dajModelOdsetek()
+        {
+            return modelOdsetek;
+        }
+
+
+        public void ustawModelOdsetek(IModelOdsetek model)
+        {
+            this.modelOdsetek = model;
         }
     }
 }

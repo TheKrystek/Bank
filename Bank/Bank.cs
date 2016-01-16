@@ -9,19 +9,26 @@ namespace Bank
 
     public class Bank
     {
+        private int code;
         private List<Klient> klienci = new List<Klient>();
-        private List<ProduktBankowy> produktyBankowe = new List<ProduktBankowy>();
+        private Dictionary<int, ProduktBankowy> produktyBankowe = new Dictionary<int, ProduktBankowy>();
         private Historia historia;
+        private Random random = new Random();
+        private PaczkaPrzelewow paczka = new PaczkaPrzelewow();
 
         public Historia Historia
         {
             get { return historia; }
         }
-        private Random random = new Random();
 
-
-        public Bank()
+        private int wygenerujNumer()
         {
+            return Const.magicNumber * code + random.Next(Const.magicNumber);
+        }
+
+        public Bank(int code = 1)
+        {
+            this.code = code;
             historia = new Historia();
         }
 
@@ -31,14 +38,18 @@ namespace Bank
             return klient;
         }
 
-        public RachunekBankowy DodajRachunekBankowy(Klient klient)
+        public RachunekBankowy DodajRachunekBankowy(Klient klient, int? idKonta = null)
         {
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
 
-            RachunekBankowy rachunek = new RachunekBankowy(klient, random.Next(10000));
+            if (idKonta == null)
+                idKonta = wygenerujNumer();
 
-            produktyBankowe.Add(rachunek);
+
+            RachunekBankowy rachunek = new RachunekBankowy(klient, idKonta.Value);
+            rachunek.ustawModelOdsetek(new LiniowyModelOdsetek(10));
+            produktyBankowe.Add(idKonta.Value, rachunek);
             return rachunek;
         }
 
@@ -48,9 +59,10 @@ namespace Bank
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
 
-            RachunekDebetowy rachunek = new RachunekDebetowy(klient, new Debet(debet), random.Next(10000));
+            int id = wygenerujNumer();
+            RachunekDebetowy rachunek = new RachunekDebetowy(klient, new Debet(debet), id);
 
-            produktyBankowe.Add(rachunek);
+            produktyBankowe.Add(id,rachunek);
             return rachunek;
         }
 
@@ -60,9 +72,10 @@ namespace Bank
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
 
-            Kredyt kredyt = new Kredyt(kwota, new ProstyModelOdsetek(oprocentowanie), iloscRat);
+            int id = wygenerujNumer();
+            Kredyt kredyt = new Kredyt(kwota, new LiniowyModelOdsetek(oprocentowanie), iloscRat);
 
-            produktyBankowe.Add(kredyt);
+            produktyBankowe.Add(id, kredyt);
             return kredyt;
         }
 
@@ -72,20 +85,12 @@ namespace Bank
             if (!klienci.Contains(klient))
                 klienci.Add(klient);
 
-            Lokata lokata = new Lokata(klient, new ProstyModelOdsetek(oprocentowanie), termin);
+            int id = wygenerujNumer();
+            Lokata lokata = new Lokata(klient, new LiniowyModelOdsetek(oprocentowanie), termin);
 
-            produktyBankowe.Add(lokata);
+            produktyBankowe.Add(id, lokata);
             return lokata;
         }
-
-
-
-        public int LiczbaKlientow()
-        {
-            return klienci.Count();
-        }
-
-
 
         public void WyswietlHistorie()
         {
@@ -116,6 +121,53 @@ namespace Bank
             if (wynik)
                 historia.Dodaj(operacja);
             return wynik;
+        }
+
+        private Izba komisja;
+
+        public void DodajKomisje(Izba komisja)
+        {
+            this.komisja = komisja;
+        }
+      
+
+        public void DodajDoPaczki(PrzelewanePieniadze p)
+        {
+            paczka.Dodaj(p);
+        }
+
+
+        public void PrzeslijPrzelewy()
+        {
+            komisja.PrzyjmijPrzelewy(this, paczka);
+            paczka = new PaczkaPrzelewow();
+        }
+
+
+        public void OdbierzPrzelewy(PaczkaPrzelewow paczka)
+        {
+            foreach (var przelew in paczka.Przelewy)
+            {
+                if (!produktyBankowe.ContainsKey(przelew.id))
+                    continue;
+
+                RachunekBankowy rachunek = produktyBankowe[przelew.id] as RachunekBankowy;
+                if (rachunek != null)
+                    Wykonaj(new Wplata(rachunek, przelew.pieniadze));
+            }
+        }
+
+        public int Kod
+        {
+            get
+            {
+                return code;
+            }
+
+            set
+            {
+                code = value;
+            }
         }
     }
 }
